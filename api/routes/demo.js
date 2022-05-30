@@ -7,7 +7,7 @@ const {getDocs, collection} = require("firebase/firestore")
 router.get("/info", async (req, res, next) => {
   console.log(req.query)
   const docs = await getDocs(collection(db, "responses"))
-  console.log(docs)
+  docs.forEach((doc) => console.log(doc.data()))
   res.send("API is working properly")
 })
 
