@@ -6,12 +6,9 @@ router.get("/info", (req, res, next) => {
   res.send("API is working properly")
 })
 
-router.get("/post", (req, res, next) => {
+router.post("/post", (req, res, next) => {
   console.log(req.body)
   res.send("Received")
 })
-
-// http://localhost:9000/demo/info
-// GET request
 
 module.exports = router
