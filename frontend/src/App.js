@@ -7,7 +7,7 @@ function App() {
   const [info, setInfo] = useState();
 
   useEffect(() => {
-    fetch("http://localhost:8000/demo/info/")
+    fetch("http://localhost:8000/demo/info?myParam=10")
     .then((res) => res.text())
     .then((text) => setInfo(text))
     .catch((err) => console.log(err))

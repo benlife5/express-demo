@@ -2,7 +2,7 @@ const express = require("express")
 const router = express.Router()
 
 router.get("/info", (req, res, next) => {
-  console.log(req.params)
+  console.log(req.query)
   res.send("API is working properly")
 })
 
