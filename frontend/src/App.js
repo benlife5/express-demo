@@ -8,8 +8,8 @@ function App() {
 
   useEffect(() => {
     fetch("http://localhost:8000/demo/info?myParam=10")
-    .then((res) => res.text())
-    .then((text) => setInfo(text))
+    .then((res) => res.json())
+    .then((text) => setInfo(text.result))
     .catch((err) => console.log(err))
   }, [])
 
@@ -21,10 +21,12 @@ function App() {
     .catch((err) => console.log(err))
   }
 
+  console.log(info)
 
   return (
     <div className="App">
-      <p>{info}</p>
+      {info && info.map((item)=> <p>{item.responseText}</p>)}
+      {/* Each document in my database had a responseText field (i.e. responseText is just a variable name I choose) */}
       <input type="submit" value="Post" onClick={() => post()} />
     </div>
   );
